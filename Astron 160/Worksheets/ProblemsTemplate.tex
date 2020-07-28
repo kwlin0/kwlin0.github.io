@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{\baselineskip}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{changepage}
+\usepackage{color}
+\usepackage{mdframed}
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  linecolor=cyan,
+  linewidth=1.5pt,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{siderules}
+
+
+\title{Problems Collection}
+
+\begin{document}
+
+\textbf{Astron 160} Discussion \hfill Worksheet 1
+\vspace{-0.5cm}
+
+\hrulefill
+
+The following problems are designed to solidify and extend what you have learned in lecture, and can be used as practice questions for exams. 
+
+\section*{Problem 1}
+At the center of the Milky Way, we infer the existence of a supermassive black hole because of the orbits observed of stars surrounding this central region. Telescopes have found stars orbiting a supposedly empty region of space with a period of 15.2 years and a semi-major axis of 5.5 light days. What is the inferred mass of the black hole based on these measurements?
+
+\vspace{0.5cm}
+\begin{adjustwidth}{2.5em}{0pt}
+\begin{siderules}
+ {\color{cyan} \textbf{Solution}
+ 
+ Let's define the variables first and let $M_{BH}$ be the mass of the black hole, $M_{\star}$ be the mass of the star, and $a$ as the semi-major axis. Using Kepler's Third Law, we can write the following:
+ \begin{equation}
+ M_{BH} + M_{\star} = \frac{4\pi^2 a^3}{GP^2}.
+ \end{equation}
+ If we take $M_{BH} \gg M_{\star}$ and we express $a \ [=]$ AU and $P \ [=]$ years, then we have 5.5 light days = 952.94 AU. We solve directly for the $M_{BH}$ term.
+ \begin{equation}
+ M_{BH} = \frac{a^3}{P^2} = \frac{(952.92 \ \text{AU})^3}{(15.2 \ \text{years})^2} = 3.74 \times 10^6 \ \text{solar masses}.
+ \end{equation}
+ This equates to $7.44 \times 10^{36}$ kg.
+ }
+\end{siderules}
+\end{adjustwidth}
+
+\section*{Problem 2}
+The filaments in a standard 100 W incandescent light bulb are heated to 2800 K. The filament itself is made of tungsten and has a surface area of $2.5 \times 10^{-5}$ m$^2$. What is the luminosity of the light bulb? How much of this energy is in the visible part of the spectrum? Where does the rest of the energy go?
+
+\setcounter{equation}{0}
+\vspace{0.5cm}
+\begin{adjustwidth}{2.5em}{0pt}
+\begin{siderules}
+ {\color{cyan} \textbf{Solution}
+ 
+To find the luminosity of the bulb, use the Stefan-Boltzmann equation.
+\begin{equation}
+L = A\sigma T^4
+\end{equation}
+Using $A = 2.5 \times 10^{-5}$ m$^2$, $T = 2800$ K, and $\sigma = 5.6704 \times 10^{-8}$ W m$^{-2}$ K$^{-4}$, we obtain $L = 87.1$ W.
+To find the amount of energy radiated in the visible range, we integrate $B_{\nu}(T)$ in the visible frequencies, $4.3 \times 10^{14}$ Hz to $7.5 \times 10^{14}$ Hz.
+\begin{equation}
+L = A \int_{0}^{2\pi} d\phi \int_{0}^{\pi/2} \cos \theta \sin \theta ~d\theta \int_{0}^{\infty} B_{\nu}(T) ~d\nu
+\end{equation}
+\begin{equation}
+B_{\nu}(T) = \frac{2h\nu^3}{c^2\left(e^{\frac{h\nu}{kT}}-1 \right)}
+\end{equation}
+Substituting this term and simplifying Eq. 2, we obtain the following non-analytical integral:
+\begin{equation}
+L = A\pi \int_{4.3\times 10^{14}}^{7.5\times 10^{14}} \frac{2h\nu^3}{c^2\left(e^{\frac{h\nu}{kT}}-1 \right)} ~d\nu
+\end{equation}
+which we can solve numerically using any program. A standard \texttt{SciPy} routine evaluates this as 5.08 W.
+
+This means that out of the 87.1 W radiating from the light bulb, only 5.8\% is in the visible light part of the spectrum. The rest of the light bulb's energy is dissipated in other frequencies of the spectrum, particularly the infrared which we can perceive as heat, because the peak emission occurs in the infrared regime. We can show this by Wien's displacement law.
+\begin{equation}
+\nu_{max} = (5.879 \times 10^{10} ~\text{Hz/K})(2800 ~\text{K}) = 1.65 \times 10^{14} ~\text{Hz}
+\end{equation}
+ }
+\end{siderules}
+\end{adjustwidth}
+
+\section*{Problem 3}
+What is the wavelength of the photon emitted when an electron transitions from the $n = 3$ to $n = 2$ energy level of a Bohr helium atom? Please retain at least 4 digits of your answer.
+
+\setcounter{equation}{0}
+\vspace{0.5cm}
+\begin{adjustwidth}{2.5em}{0pt}
+\begin{siderules}
+ {\color{cyan} \textbf{Solution}
+ 
+Assuming the helium atom is not an ion that is hydrogen-like such as He$^{+}$, then we take the simplistic Bohr model where two electrons in a neutral helium atom are diametrically opposite of each other in a circular orbit. From the electrical and repulsion forces given by Coulomb's law, we have:
+\begin{equation}
+F_c = \frac{2e^2}{4\pi \epsilon_0 r^2} - \frac{e^2}{4\pi \epsilon_0(2r)^2} = \frac{7e^2}{4\pi \epsilon_0(4r^2)}
+\end{equation}
+This is equal to the centripetal force given by:
+\begin{equation}
+F_c = \frac{\mu v^2}{r} = \frac{7e^2}{4\pi \epsilon_0(4r^2)}
+\end{equation}
+where $\mu$ is the reduced mass. The kinetic energy for each electron immediately follows:
+\begin{equation}
+K = \frac{1}{2}\mu v^2 = \frac{7e^2}{4\pi \epsilon_0(8r)}
+\end{equation}
+This means the net kinetic energy in the two-electron system is:
+\begin{equation}
+K_{net} = \frac{7e^2}{4\pi \epsilon_0(4r)}
+\end{equation}
+The electrical potential energy is found the same way.
+\begin{equation}
+U = -\frac{kQq}{r} = \frac{-4e^2}{r(4\pi\epsilon_0)} - \frac{-e^2}{2r(4\pi\epsilon_0)} = -\frac{7}{2}\frac{e^2}{4\pi r\epsilon_0}
+\end{equation}
+Thus, the total energy is:
+\begin{equation}
+E_T = U + K = -\frac{7}{2}\frac{e^2}{4\pi r\epsilon_0} + \frac{7e^2}{4\pi \epsilon_0(4r)} = -\frac{7}{4}\frac{e^2}{4\pi r\epsilon_0}
+\end{equation}
+Using Bohr's quantization of angular momentum:
+\begin{equation}
+L = \mu vr = n\hbar \Rightarrow v = \frac{n\hbar}{\mu r}
+\end{equation}
+Solving for kinetic energy from Eq. 3, we have
+\begin{equation}
+\begin{aligned}
+\frac{1}{2}\mu v^2 &= \frac{7}{8} \frac{e^2}{4\pi r \epsilon_0} \\
+\frac{1}{2}\mu \left( \frac{n^2\hbar^2}{\mu^2 r^2}\right) &= \frac{7}{8} \frac{e^2}{4\pi r \epsilon_0} \\
+\Rightarrow r &= \frac{4n^2\hbar^2(4\pi \epsilon_0)}{7\mu e^2}
+\end{aligned}
+\end{equation}
+Substituting this expression for radius into the expression for total energy, we find that
+\begin{equation}
+E_T = -\frac{49}{16}\frac{\mu e^4}{n^2\hbar^2(4\pi\epsilon_0)^2}
+\end{equation}
+When the two electrons make a simultaneous transition, we can find the wavelength of light emitted in the same way as for the hydrogen atom.
+\begin{equation}
+\begin{aligned}
+\frac{hc}{\lambda} &= E_{n_2} - E_{n_1} \\
+\frac{hc}{\lambda} &= \frac{49}{16}\frac{\mu e^4}{\hbar^2(4\pi\epsilon_0)^2}\left[ \frac{1}{n_1^2} - \frac{1}{n_2^2} \right] \\
+\frac{2\pi \hbar c}{\lambda} &= \frac{49}{16}\frac{\mu e^4}{\hbar^2(4\pi\epsilon_0)^2}\left[ \frac{1}{n_1^2} - \frac{1}{n_2^2} \right] \hfill (\text{note the } \hbar) \\
+\frac{1}{\lambda} &= \frac{49}{16}\frac{\mu e^4}{2\pi c \hbar^2(4\pi\epsilon_0)^2}\left[ \frac{1}{n_1^2} - \frac{1}{n_2^2} \right]
+\end{aligned}
+\end{equation}
+With $n_1 = 2$ and $n_2 = 3$, the right side of the above expression yields $6.714 \times 10^7$ m$^{-1}$. Therefore, the transition from $n = 3$ to $n = 2$ of a Bohr helium atom emits a photon of wavelength
+\begin{equation}
+\lambda = 1.0724 \times 10^{-7} ~\text{m} = 107.24 ~\text{nm}.
+\end{equation}
+This is in the UV part of the spectrum.
+ }
+\end{siderules}
+\end{adjustwidth}
+
+\section*{Problem 4}
+The radiation pressure integral is given by:
+\begin{equation*}
+P_{rad} = \frac{1}{3} \int_{0}^{\infty} u_{\nu} ~d\nu
+\end{equation*}
+where for thermal (BB) radiation,
+\begin{equation*}
+u_{\nu} = \frac{8\pi h\mu^3}{c^3}\frac{1}{e^{h\nu /kT}-1}.
+\end{equation*}
+Show that by working through the pressure integral, we obtain the simplified expression 
+\begin{equation*}
+P_{rad} = \frac{1}{3}aT^4
+\end{equation*}
+where $a = 4\sigma/c$ with $\sigma$ being the Stefan-Boltzmann constant.
+\end{document}
