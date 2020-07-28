@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  27 JUL 2020 22:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  27 JUL 2020 23:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -504,13 +504,17 @@ Package mdframed Info: Box was splittet wrong
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
 (mdframed)              on input line 222.
- [5] [6] (./ProblemsTemplate.aux) ) 
+ [5] [6]
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 313.
+ [7] [8] (./ProblemsTemplate.aux) ) 
 Here is how much of TeX's memory you used:
- 11141 strings out of 492995
- 206406 string characters out of 6132704
+ 11143 strings out of 492995
+ 206427 string characters out of 6132704
  282491 words of memory out of 5000000
- 14625 multiletter control sequences out of 15000+600000
- 9367 words of font info for 36 fonts, out of 8000000 for 9000
+ 14626 multiletter control sequences out of 15000+600000
+ 9714 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,10n,29p,10415b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/ty
@@ -525,12 +529,13 @@ msfonts/cm/cmr8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmsy6.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmtt12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/s
-ymbols/msbm10.pfb>
-Output written on ProblemsTemplate.pdf (6 pages, 137557 bytes).
+cm/cmti12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmtt12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/sy
+mbols/msbm10.pfb>
+Output written on ProblemsTemplate.pdf (8 pages, 154603 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -243,4 +243,74 @@ Is there helium fusion in the Sun?
  }
 \end{siderules}
 \end{adjustwidth}
+
+\section*{Problem 6}
+Solving the system of stellar structure relations and their constitutive relations typically requires numerical approaches. However, one family of solutions to the stellar structure equations can be solved analytically and these are known as polytropes. The equation that describes analytical stellar models is known as the \textit{Lane-Emden equation} and are highly idealized cases. It is written as
+\begin{equation}
+\frac{1}{\xi^2}\frac{d}{d\xi}\left[\xi^2 \frac{d\Theta}{d\xi}\right] = -\Theta_n^n
+\end{equation}
+where $n$ is the polytropic index that specifies the dimensionless function $\Theta_n (\xi)$. With the proper boundary conditions, we can find the $n=0$ solution (there are also solutions for $n=1$ and $n=5$) to be
+\begin{equation}
+\Theta_0(\xi) = 1-\frac{\xi^2}{6}.
+\end{equation}
+Show the boundary conditions that must be imposed and derive this result.
+
+\setcounter{equation}{0}
+\vspace{0.5cm}
+\begin{adjustwidth}{2.5em}{0pt}
+\begin{siderules}
+ {\color{blue} \textbf{Solution}
+ 
+Start with the Lane-Emden equation.
+\begin{equation*}
+\frac{1}{\xi^2}\frac{d}{d\xi}\left[\xi^2 \frac{d\Theta}{d\xi}\right] = -\Theta_n^n
+\end{equation*}
+To solve this second-order differential equation, two boundary conditions must be imposed. The central density of the star is defined by
+\begin{equation}
+\rho(\xi) = 1 \rightarrow \Theta(0) = 1
+\end{equation}
+This is essentially a normalization of the density scaling function $\Theta$. The second boundary is the central boundary condition, which says that there is no mass inside zero radius. This means that for the density with respect to the radius
+\begin{equation}
+\frac{d\rho}{dr} \rightarrow 0 ~as ~ r \rightarrow 0
+\end{equation}
+Since the hydrostatic equilibrium equation $\frac{dP}{dr}$ is proportional to $\frac{d\Theta}{d\xi}$ and depends on density $\rho$ and the equation of state $P_n (r) = K\rho_n^{(n+1)/n}$ for the polytropic model, then the above condition directly leads to
+\begin{equation}
+\frac{d\Theta}{d\xi} = 0 ~at ~ \xi = 0.
+\end{equation}
+For the $n=0$ analytic solution to the Lane-Emden equation, we have
+\begin{equation}
+\frac{1}{\xi^2}\frac{d}{d\xi}\left[\xi^2 \frac{d\Theta}{d\xi}\right] = -1
+\end{equation}
+Separating the variables and integrating:
+\begin{equation}
+\begin{aligned}
+\int \frac{d}{d\xi} \left[\xi^2 \frac{d\Theta}{d\xi} \right] ~d\xi &= -\int \xi^2 ~d\xi \\
+\xi^2 \frac{d\Theta}{d\xi} &= -\frac{\xi^3}{3} + C_1 \\
+\frac{d\Theta}{d\xi} &= -\frac{\xi}{3} + \frac{C_1}{\xi^2}
+\end{aligned}
+\end{equation}
+We can now apply the central boundary condition. Since $\frac{d\Theta}{d\xi} = 0$ when $\xi = 0$, we obtain
+\begin{equation}
+\begin{aligned}
+C_1 &= 0 \\
+\Rightarrow & \frac{d\Theta}{d\xi} = -\frac{\xi}{3}
+\end{aligned}
+\end{equation}
+Integrating, we find the dimensionless function and a second constant:
+\begin{equation}
+\Theta(\xi) = -\frac{\xi^2}{6} + C_2
+\end{equation}
+Applying the boundary condition for density at the center of the star:
+\begin{equation*}
+\Theta(0) = 0 + C_2 = 1
+\end{equation*}
+This yields the solution of
+\begin{equation}
+\Theta(\xi) = -\frac{\xi^2}{6} + 1 = 1 - \frac{\xi^2}{6}
+\end{equation}
+which is what we expected.
+ }
+\end{siderules}
+\end{adjustwidth}
+
 \end{document}
