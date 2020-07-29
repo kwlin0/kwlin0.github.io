@@ -11,6 +11,7 @@
 \usepackage{changepage}
 \usepackage{color}
 \usepackage{mdframed}
+\usepackage{enumitem}
 \newmdenv[
   topline=false,
   bottomline=false,
@@ -26,12 +27,12 @@
 
 \begin{document}
 UC Berkeley | Fall 2020 \\
-\textbf{Astron 160} Discussion \hfill Worksheet 1
+\textbf{160 Stellar Physics} Lecture \hfill Problems Archive
 \vspace{-0.5cm}
 
 \hrulefill
 
-%The following problems are designed to solidify and extend what you have learned in lecture, and can be used as practice questions for exams. 
+The following problems are designed to solidify and extend what you have learned in lecture, and can be used as practice questions for exams. Please show \textbf{all} work and justify your responses.
 
 \section*{Problem 1}
 At the center of the Milky Way, we infer the existence of a supermassive black hole because of the orbits observed of stars surrounding this central region. Telescopes have found stars orbiting a supposedly empty region of space with a period of 15.2 years and a semi-major axis of 5.5 light days. What is the inferred mass of the black hole based on these measurements?
@@ -165,7 +166,7 @@ where for blackbody radiation the intensity of photons $u_{\nu}$ is given as,
 \begin{equation*}
 u_{\nu} = \frac{8\pi h\mu^3}{c^3}\frac{1}{e^{h\nu /kT}-1}.
 \end{equation*}
-Show that by working through the pressure integral aboe, we can obtain the simplified expression 
+Show that by working through the pressure integral above, we can obtain the simplified expression 
 \begin{equation*}
 P_{rad} = \frac{1}{3}aT^4
 \end{equation*}
@@ -312,5 +313,102 @@ which is what we expected.
  }
 \end{siderules}
 \end{adjustwidth}
+
+\section*{Problem 7}
+The Sun's photosphere is its ``surface" which has a characteristic temperature of $T = 5777$ K. Here, there are about 500,000 hydrogen atoms for each calcium atom with an electron pressure $P_e = 1.5$ N m$^{-2}$. Compare the strengths of the hydrogen Balmer absorption line and the Ca II K line. Take the hydrogen ionization energy to be $\chi_I = 13.6$ eV, the Ca I ionization energy as $\chi_I = 6.11$ eV, and the degeneracies at a given energy level $n$ for hydrogen atoms to be $g_n = 2n^2$. Assume the first excited state of Ca II is $3.12$ eV above the ground state, the partition functions are $Z_{I} = 1.32$ and $Z_{II} = 2.30$, and the degeneracies are $g_1 = 2$ and $g_2 = 4$.
+\begin{enumerate}[label=(\alph*)]
+\item Compute the fraction of hydrogen atoms that are ionized (H II).
+\setcounter{equation}{0}
+\vspace{0.5cm}
+\begin{adjustwidth}{2.5em}{0pt}
+\begin{siderules}
+ {\color{blue} \textbf{Solution}
+ 
+We must first compute the fraction of hydrogen atoms that are ionized by using the Saha equation.
+\begin{equation}
+\left[\frac{N_{II}}{N_I}\right]_H = \frac{2kTZ_{II}}{P_e Z_I}\left(\frac{2\pi m_e kT}{h^2}\right)^{3/2} e^{-\chi_I/kT}
+\end{equation}
+These are all constants with the notable exception of the partition functions $Z_I$ and $Z_{II}$. How do we find these? Recall the definition of the partition function $Z$ (this is Eq. 8.7 in Carroll \& Ostlie). Since a hydrogen ion is a proton, it has no degeneracy and thus $Z_{II} = 1$. For $Z_I$, since the energy of the first hydrogen excited state is 10.2 eV above the ground state, it is much larger than $kT$ and thus, the term $e^{-(E_2 - E_1)/kT}$ is very small. Therefore, the partition function can be approximated as $Z_1 \sim g_1$. Since $g_n = 2n^2$, then $g_1 = 2$ and we can take $Z_I \approx 2$.
+
+Once we compute the value of the Saha equation with these constants, we find a fraction of about 1/13,358. This means that there is only one hydrogen ion for every $\sim 13,000$ neutral hydrogen atoms.
+ }
+\end{siderules}
+\end{adjustwidth}
+
+\item What fraction of the neutral hydrogen atoms have electrons in the first excited state?
+
+
+\vspace{0.5cm}
+\begin{adjustwidth}{2.5em}{0pt}
+\begin{siderules}
+ {\color{blue} \textbf{Solution}
+ 
+For atoms of a given element and ionization state, the ratio of the number of atoms $N_b$ with energy $E_b$ to the number of atoms $N_a$ with energy $E_a$ in different excitation states is found with the Boltzmann equation. The statistical weights of the energy levels are $g_1 = 2$ and $g_2 = 8$ for hydrogen. The difference between $E_2$ and $E_1$ is 10.2 eV.
+\begin{equation}
+\left[\frac{N_2}{N_1}\right]_H = \frac{g_2}{g_1} e^{-(E_2 - E_1)/kT}
+\end{equation}
+Evaluating this expression gives about $4.956 \times 10^{-9} \approx 1/201,750,522$.
+ }
+\end{siderules}
+\end{adjustwidth}
+
+\item Using the two preceding results, find the fraction of hydrogen atoms capable of producing Balmer absorption lines.
+
+\vspace{0.5cm}
+\begin{adjustwidth}{2.5em}{0pt}
+\begin{siderules}
+ {\color{blue} \textbf{Solution}
+ 
+The only hydrogen atoms that can produce Balmer absorption lines are those already in the first excited state.
+\begin{equation}
+\frac{N_2}{N_{total}} = \left(\frac{N_2}{N_1 + N_2}\right)\left(\frac{N_I}{N_{total}}\right) = \left(\frac{N_2/N_1}{1+N_2/N_1}\right)\left(\frac{1}{1+N_{II}/N_I}\right)
+\end{equation}
+This gives approximately 1/201,765,626, meaning that one of more than 200 million hydrogen atoms is in the first excited state, capable of producing Balmer absorption lines.
+ }
+\end{siderules}
+\end{adjustwidth}
+
+\item Find the fraction of ionized Ca II ions, the atoms capable of producing the Ca II K line, by repeating the calculation above.
+
+\vspace{0.5cm}
+\begin{adjustwidth}{2.5em}{0pt}
+\begin{siderules}
+ {\color{blue} \textbf{Solution}
+ 
+Following the steps above, we first compute the fraction of calcium atoms in the Ca II state. The partition functions are given as $Z_I = 1.32$ and $Z_{II} = 2.30$, with a Ca I ionization energy of $\chi_I = 6.11$ eV. Using the Saha equation:
+\begin{equation*}
+\left[\frac{N_{II}}{N_I}\right]_{Ca} = \frac{2kTZ_{II}}{P_e Z_I}\left(\frac{2\pi m_e kT}{h^2}\right)^{3/2} e^{-\chi_I/kT} = 905.4
+\end{equation*}
+meaning that one calcium atom of more than 900 are in the neutral state. The vast majority of atoms are in the Ca II state.
+
+Now we consider the ratio of calcium ions in the excited to the ground state. The energy difference between this first excited state and ground state is 3.12 eV as given, with degeneracies of $g_1 = 2$ and $g_2 = 4$.
+\begin{equation*}
+\left[\frac{N_2}{N_1}\right]_{Ca II} = \frac{g_2}{g_1} e^{-(E_2 - E_1)/kT} \approx \frac{1}{265}
+\end{equation*}
+This means that one Ca II ion is in the excited state out of every 265 atoms and are capable of producing the Ca II K line. Now, we can see that almost all of the calcium atoms in the photosphere are in the ground state by computing its fraction:
+\begin{equation}
+\frac{N_1}{N_{total}} = \left(\frac{1}{1+[N_2/N_1]_{Ca II}}\right)\left(\frac{[N_{II}/N_I]_{Ca II}}{1+[N_{II}/N_I]_{Ca II}}\right) = 0.995
+\end{equation}
+This indicates that the vast majority of calcium atoms are in the ground state.
+ }
+\end{siderules}
+\end{adjustwidth}
+
+\item Which line is stronger and why?
+
+\vspace{0.5cm}
+\begin{adjustwidth}{2.5em}{0pt}
+\begin{siderules}
+ {\color{blue} \textbf{Solution}
+ 
+There are 500,000 hydrogen atoms for every calcium atom in the solar photosphere. Only a fraction of them ($\sim 1/200,000,000$) are in the first excited state and can produce Balmer lines as shown in (b). What fraction of 500,000 can produce the Balmer line?
+\begin{equation}
+(500,000)(4.956 \times 10^{-9}) \approx 1/403
+\end{equation}
+Since we have shown in (c) that nearly all calcium atoms are capable of forming the K line, this means that there are about 400 times \emph{more} Ca II ions with electrons in the ground state to produce the K line than there are in neutral hydrogen atoms with electrons in the first excited state to produce the Balmer line. Consequently, the Ca II K line is much stronger than the Balmer lines in the Sun's spectrum.
+ }
+\end{siderules}
+\end{adjustwidth}
+\end{enumerate}
 
 \end{document}
